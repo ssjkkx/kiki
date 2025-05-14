@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>liwenqi & love</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Helvetica Neue", sans-serif;
+      background-color: #ffe6ea;
+      color: #333;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: flex-end;
+      background-color: #ffccd5;
+      padding: 15px 30px;
+    }
+
+    .navbar a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #d34a4a;
+      font-weight: bold;
+    }
+
+    .carousel-container {
+      position: relative;
+      width: 100%;
+      height: 500px;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #ffdfe4;
+    }
+
+    .carousel-track {
+      display: flex;
+      width: 200%;
+      height: 100%;
+      animation: slide 10s infinite;
+    }
+
+    .carousel-track img {
+      width: 100vw;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @keyframes slide {
+      0%, 40% {
+        transform: translateX(0);
+      }
+      50%, 90% {
+        transform: translateX(-100%);
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    .slogan-text {
+      position: absolute;
+      text-align: center;
+      color: #ffffff65;
+      text-shadow: 0 0 10px #000;
+      font-size: 28px;
+      font-weight: bold;
+      z-index: 2;
+    }
+
+    h2 {
+      margin: 40px 20px 10px;
+    }
+
+    form {
+      margin: 20px;
+      background: #f5e1ff20;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .record-btn {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 30px;
+      background-color: #ff8fa3;
+      color: white;
+      font-size: 18px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .manuals {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+      margin: 30px 20px;
+    }
+
+    .manual-item {
+      text-align: center;
+    }
+
+    .manual-item img {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease;
+}
+.manual-item img:hover {
+  transform: scale(1.05);
+}
+    
+    .hero-section {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      width: 100%;
+      background-color: #ffdfe4;
+    }
+  
+    .hero-image {
+      width: auto;
+      height: 400px;
+      max-width: 100%;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto;
+    }
+  
+    .hero-text {
+      position: absolute;
+      text-align: center;
+      color: #f46a6a;
+      font-family: "Georgia", "KaiTi", "Arial", sans-serif;
+      text-shadow: 0 0 10px #0000009a;
+      font-size: 26px;
+      font-weight: bold;
+      line-height: 1.5;
+      padding: 0 20px;
+    }
+    .icon {
+  height: 1em;        /* 高度与文字等高 */
+  width: auto;        /* 自动按比例缩放 */
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+  </style>
+
+</head>
+<body>
+  <div class="navbar">
+    <a href="#">主页</a>
+    <a href="login.html">登录/注册</a>
+    <a href="history.html">查看记录</a>
+    <a href="guide.html">使用说明</a>
+  </div>
+
+  <div class="hero-section">
+    <img src="image1.jpg" alt="slogan background" class="hero-image">
+    <div class="hero-text">
+      Track with care, heal with love.<br>
+      No more silent suffering—every cycle deserves care.
+    </div>
+  </div>
+
+  <h2>经期日志</h2>
+  <form id="logForm">
+    <label for="date">
+        <img src="calendar.png" alt="calendar" class="icon">
+        日期：
+      </label>
+      <input type="date" id="date" name="date">
+
+    <label for="pain"><img src="bad.png" alt="calendar" class="icon">疼痛程度（1-10）：</label>
+    <input type="number" id="pain" name="pain" min="1" max="10">
+
+    <label for="diet">
+        <img src="fork.png" alt="calendar" class="icon">
+        饮食记录：</label>
+    <textarea id="diet" name="diet"></textarea>
+
+    <label for="rest"><img src="huhu.png" alt="calendar" class="icon">休息时间（小时）：</label>
+    <input type="number" id="rest" name="rest" min="0">
+
+    <label for="mood">
+        <img src="flower.png" alt="calendar" class="icon">
+        心情（如：愉快/一般/焦虑）：</label>
+    <input type="text" id="mood" name="mood">
+
+    <label for="stress">
+        <img src="cloud.png" alt="calendar" class="icon">
+        压力自评（1-10）：</label>
+    <input type="number" id="stress" name="stress" min="1" max="10">
+
+    <label for="exercise"><img src="run.png" alt="calendar" class="icon">运动情况：</label>
+    <textarea id="exercise" name="exercise"></textarea>
+
+    <button type="button" class="record-btn" onclick="evaluateLog()">记录</button>
+  </form>
+
+  <h2>健康习惯手册</h2>
+  <div class="manuals">
+    <div class="manual-item">
+      <a href="#"><img src="image3.png" alt="drink"></a>
+      <p>多喝水</p>
+    </div>
+    <div class="manual-item">
+      <a href="#"><img src="image4.png" alt="page1"></a>
+      <p>充足睡眠</p>
+    </div>
+    <div class="manual-item">
+      <a href="#"><img src="image5.png" alt="page2"></a>
+      <p>保持身体温暖</p>
+    </div>
+    <div class="manual-item">
+      <a href="#"><img src="image6.png" alt="page3"></a>
+      <p>适当运动</p>
+    </div>
+  </div>
+
+  <script>
+    function evaluateLog() {
+  const date = document.getElementById("date").value;
+  const pain = parseInt(document.getElementById("pain").value);
+  const rest = parseFloat(document.getElementById("rest").value);
+  const diet = document.getElementById("diet").value;
+  const mood = document.getElementById("mood").value;
+  const stress = parseInt(document.getElementById("stress").value);
+  const exercise = document.getElementById("exercise").value;
+
+  // 保存记录对象
+  const entry = { date, pain, rest, diet, mood, stress, exercise };
+
+  // 获取旧记录
+  const logs = JSON.parse(localStorage.getItem("logs") || "[]");
+
+  // 添加新记录
+  logs.push(entry);
+
+  // 保存回 localStorage
+  localStorage.setItem("logs", JSON.stringify(logs));
+
+  // 原有建议逻辑不变
+  let advice = "";
+  if (pain >= 7) advice += "疼痛较严重，请热敷或服用医生推荐的止痛药。\n";
+  if (rest < 6) advice += "休息不足，建议早睡或适当午休。\n";
+  if (stress > 7) advice += "压力较大，推荐尝试冥想或与朋友交流。\n";
+  if (advice === "") advice = "情况良好，请继续保持良好习惯！";
+
+  alert(advice);
+}
+  </script>
+</body>
+</html>

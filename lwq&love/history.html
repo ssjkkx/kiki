@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>历史记录</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fff0f3;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #d34a4a;
+    }
+    .log-item {
+      background: #fff;
+      border-left: 6px solid #ff8fa3;
+      padding: 15px;
+      margin: 10px auto;
+      border-radius: 8px;
+      box-shadow: 0 0 6px rgba(0,0,0,0.1);
+      max-width: 700px;
+    }
+  </style>
+</head>
+<body>
+  <h1>经期记录历史</h1>
+  <div id="logContainer"></div>
+
+  <script>
+    const logs = JSON.parse(localStorage.getItem("logs") || "[]");
+    const container = document.getElementById("logContainer");
+
+    if (logs.length === 0) {
+      container.innerHTML = "<p>暂无记录。</p>";
+    } else {
+      logs.forEach((entry, index) => {
+        const logDiv = document.createElement("div");
+        logDiv.className = "log-item";
+        logDiv.innerHTML = `
+          <strong>记录 ${index + 1}</strong><br>
+          日期：${entry.date}<br>
+          疼痛程度：${entry.pain}<br>
+          休息时间：${entry.rest} 小时<br>
+          饮食：${entry.diet}<br>
+          心情：${entry.mood}<br>
+          压力：${entry.stress}<br>
+          运动：${entry.exercise}
+        `;
+        container.appendChild(logDiv);
+      });
+    }
+  </script>
+</body>
+</html>
